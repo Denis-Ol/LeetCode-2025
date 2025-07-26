@@ -37,6 +37,52 @@ Constraints:
         System.out.println("Solution for test 8: " + canPlaceFlowers(new int[]{0, 0, 0, 0, 0, 0}, 4));
     }
 
+    /**
+     * public static boolean canPlaceFlowers(int[] flowerbed, int n) {
+     * if (n == 0) {
+     * return true;
+     * }
+     * <p>
+     * int size = flowerbed.length;
+     * <p>
+     * if (size == 1) {
+     * return flowerbed[0] == 0;
+     * }
+     * if (size < 2 * n - 1) {
+     * return false;
+     * }
+     * <p>
+     * if (size == 2) {
+     * return flowerbed[0] + flowerbed[1] == 0; //probably could be included below
+     * }
+     * <p>
+     * //size >= 3 - search for place, plant, reduce n by 1 and call reduced.
+     * //        left edge case: 0 and 0 -> plant in [0]
+     * if (flowerbed[0] + flowerbed[1] == 0) {
+     * flowerbed[0] = 1;
+     * return canPlaceFlowers(flowerbed, n - 1);
+     * }
+     * <p>
+     * int i = 1;
+     * while (i < size - 1) {
+     * if (flowerbed[i - 1] + flowerbed[i] + flowerbed[i + 1] == 0) {
+     * flowerbed[i] = 1;
+     * return canPlaceFlowers(flowerbed, n - 1);
+     * } else {
+     * i++;
+     * }
+     * }
+     * <p>
+     * //right edge case
+     * if (flowerbed[size - 2] + flowerbed[size - 1] == 0) {
+     * flowerbed[size - 1] = 1;
+     * return canPlaceFlowers(flowerbed, n - 1);
+     * }
+     * <p>
+     * return false;
+     * }
+     */
+
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
         if (n == 0) {
             return true;
@@ -47,6 +93,7 @@ Constraints:
         if (size == 1) {
             return flowerbed[0] == 0;
         }
+
         if (size < 2 * n - 1) {
             return false;
         }
@@ -55,29 +102,28 @@ Constraints:
             return flowerbed[0] + flowerbed[1] == 0; //probably could be included below
         }
 
-        //size >= 3 - search for place, plant, reduce n by 1 and call reduced.
+        //size >= 3 - search for place, plant, reduce n by 1
+
 //        left edge case: 0 and 0 -> plant in [0]
         if (flowerbed[0] + flowerbed[1] == 0) {
             flowerbed[0] = 1;
-            return canPlaceFlowers(flowerbed, n - 1);
+            --n;
         }
-
         int i = 1;
-        while (i < size - 1) {
+        while (n > 0 && i < size - 1) {
             if (flowerbed[i - 1] + flowerbed[i] + flowerbed[i + 1] == 0) {
                 flowerbed[i] = 1;
-                return canPlaceFlowers(flowerbed, n - 1);
+                --n;
             } else {
                 i++;
             }
         }
 
 //right edge case
-        if (flowerbed[size - 2] + flowerbed[size - 1] == 0) {
+        if (n > 0 && flowerbed[size - 2] + flowerbed[size - 1] == 0) {
             flowerbed[size - 1] = 1;
-            return canPlaceFlowers(flowerbed, n - 1);
+            --n;
         }
-
-        return false;
+        return n <= 0;
     }
 }
