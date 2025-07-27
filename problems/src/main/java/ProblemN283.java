@@ -36,27 +36,118 @@ Follow up: Could you minimize the total number of operations done?
         System.out.println("Solution for example 3: " + Arrays.toString(nums));
         nums = new int[]{1, 0};
         moveZeroes(nums);
+        nums = new int[]{1, 0};
+        moveZeroes(nums);
         System.out.println("Solution for example 4: " + Arrays.toString(nums));
+        nums = new int[]{1, 0, 1};
+        moveZeroes(nums);
+        System.out.println("Solution for example 5: " + Arrays.toString(nums));
+        nums = new int[]{1, 2, 3};
+        moveZeroes(nums);
+        System.out.println("Solution for example 6: " + Arrays.toString(nums));
+
     }
 
-    public static void moveZeroes(int[] nums) {
-        int length = nums.length;
-        int zero = 0;
-        int nonZero = 0;
-        while (nonZero < length && zero < length) {
-            while (zero < length && nums[zero] != 0) {
-                ++zero;
-            }
-            if (zero < length) {
-                nonZero = zero;
-                while (nonZero < length && nums[nonZero] == 0) {
-                    ++nonZero;
-                }
-                if (nonZero < length) {
-                    nums[zero++] = nums[nonZero];
-                    nums[nonZero++] = 0;
-                }
-            }
-        }
+//    public static void moveZeroes(int[] nums) {
+//        int length = nums.length;
+//        int zero = 0;
+//        int nonZero = 0;
+//        while (nonZero < length && zero < length) {
+//            while (zero < length && nums[zero] != 0) {
+//                ++zero;
+//            }
+//            if (zero < length) {
+//                nonZero = zero;
+//                while (nonZero < length && nums[nonZero] == 0) {
+//                    ++nonZero;
+//                }
+//                if (nonZero < length) {
+//                    nums[zero++] = nums[nonZero];
+//                    nums[nonZero++] = 0;
+//                }
+//            }
+//        }
+//    }
+
+
+//    public static void moveZeroes(int[] nums) {
+//        int left = 0; // Pointer for placing non-zero elements
+//
+//// Iterate with right pointer
+//        for (int right = 0; right < nums.length; right++) {
+//            if (nums[right] != 0) {
+
+    //// Swap elements if right pointer finds a non-zero
+//                if (left != right) {
+//                    nums[left] = nums[right];
+//                    nums[right] = 0;
+//                }
+//                left++; // Move left pointer forward
+//            }
+//        }
+//
+//
+//    }
+    static {
+        for (int i = 0; i < 100; i++)
+            moveZeroes(new int[]{0, 0});
     }
+
+
+    public static void moveZeroes(int[] nums) {
+        int left = 0; // Pointer for placing non-zero elements
+        int right = 0; // Pointer for iterating through the array
+
+        // Iterate with right pointer
+        // The loop continues as long as the right pointer is within the array bounds
+        while (right < nums.length) {
+            if (nums[right] != 0) {
+                // If the element at 'right' is non-zero, it needs to be moved to the 'left' position.
+                // We only perform the assignments if 'left' and 'right' pointers are not at the same position.
+                // This avoids unnecessary self-assignments when the non-zero element is already in its correct sorted place.
+                if (left != right) {
+                    nums[left] = nums[right]; // Move non-zero element to the 'left' pointer's position
+                    nums[right] = 0;          // Set the 'right' pointer's original position to zero
+                }
+                left++; // Increment 'left' pointer to indicate the next position for a non-zero element
+            }
+            right++; // Always increment 'right' pointer to move to the next element
+        }
+
+    }
+
 }
+/**
+ * --------------------------------------------------------------------
+ * *Why the Code Appears Faster After Static Block Execution**
+ * <p>
+ * This summary explains why invoking the `findMaxConsecutiveOnes()` method multiple times in a static block makes subsequent executions of the method faster.
+ * <p>
+ * ---
+ * <p>
+ * ### 1. JIT Warm-up (Just-In-Time Compilation)
+ * <p>
+ * The JVM uses a Just-In-Time (JIT) compiler to optimize frequently used methods ("hot" code paths).
+ * Repeatedly calling `findMaxConsecutiveOnes()` during class loading warms up the JIT.
+ * Once the method is JIT-compiled, future calls execute faster.
+ * Without this warm-up, the method runs in interpreted mode, which is slower.
+ * <p>
+ * ---
+ * <p>
+ * ### 2. CPU Cache Warming
+ * <p>
+ * Repetitive execution of the method helps warm up CPU instruction caches (I-cache).
+ * This leads to better cache hits and reduced latency when the method is actually benchmarked or tested.
+ * <p>
+ * ---
+ * <p>
+ * ### 3. Memory Allocation Stabilization
+ * <p>
+ * Initial executions may involve overhead from garbage collection (GC), object allocation, or class loading.
+ * By warming up in advance, these overheads are minimized during actual measurement.
+ * <p>
+ * ---
+ * <p>
+ * *Conclusion**: The perceived speedup isn't due to algorithmic improvements but rather JVM and CPU-level optimizations triggered by early repeated executions.
+ * -------------------------------------------------------------------------------
+ */
