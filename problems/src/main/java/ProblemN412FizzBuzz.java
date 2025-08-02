@@ -46,12 +46,50 @@ Constraints:    1 <= n <= 10^4  */
 //        return list;
 //    }
 
+//    public static List<String> fizzBuzz(int n) {
+//        List<String> list = new ArrayList<>(n);
+//        for (int i = 1; i <= n; i++) {
+//            list.add((i % 15 == 0) ? "FizzBuzz" :
+//                    (i % 3 == 0) ? "Fizz" :
+//                            (i % 5 == 0) ? "Buzz" : String.valueOf(i));
+//        }
+//        return list;
+//    }
+
+    static {
+        for (int i = 0; i < 100; i++)
+            fizzBuzz(1);
+    }
+
     public static List<String> fizzBuzz(int n) {
         List<String> list = new ArrayList<>(n);
         for (int i = 1; i <= n; i++) {
-            list.add((i % 15 == 0) ? "FizzBuzz" : (i % 3 == 0) ? "Fizz" : (i % 5 == 0) ? "Buzz" : String.valueOf(i));
+            list.add(fizzBuzzStr(i));
         }
         return list;
     }
+
+    public static String fizzBuzzStr(int index) {
+        return (index % 15 == 0) ? "FizzBuzz" :
+                (index % 3 == 0) ? "Fizz" :
+                        (index % 5 == 0) ? "Buzz" : String.valueOf(index);
+    }
+    //    public static List<String> fizzBuzz(int n) {
+//        List<String> list = new ArrayList<>(n);
+//        for (int i = 1; i <= n; i++) {
+//            String result = "";
+//            if (i % 3 == 0) {
+//                result += "Fizz";
+//            }
+//            if (i % 5 == 0) {
+//                result += "Buzz";
+//            }
+//            if (result.isEmpty()) {
+//                result = String.valueOf(i);
+//            }
+//            list.add(result);
+//        }
+//        return list;
+//    }
 
 }
