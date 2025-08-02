@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class ProblemN283 {
     /*
@@ -25,28 +26,45 @@ Follow up: Could you minimize the total number of operations done?
 */
     public static void main(String[] args) {
         System.out.println("Hello LeetCode #283");
-        int[] nums = new int[]{0, 1, 0, 3, 12};
-        moveZeroes(nums);
-        System.out.println("Solution for example 1: " + Arrays.toString(nums));
-        nums = new int[]{0};
-        moveZeroes(nums);
-        System.out.println("Solution for example 2: " + Arrays.toString(nums));
-        nums = new int[]{1};
-        moveZeroes(nums);
-        System.out.println("Solution for example 3: " + Arrays.toString(nums));
-        nums = new int[]{1, 0};
-        moveZeroes(nums);
-        nums = new int[]{1, 0};
-        moveZeroes(nums);
-        System.out.println("Solution for example 4: " + Arrays.toString(nums));
-        nums = new int[]{1, 0, 1};
-        moveZeroes(nums);
-        System.out.println("Solution for example 5: " + Arrays.toString(nums));
-        nums = new int[]{1, 2, 3};
-        moveZeroes(nums);
-        System.out.println("Solution for example 6: " + Arrays.toString(nums));
-
     }
+
+//    public static void moveZeroes(int[] nums) {
+//        Integer[] numsInteger = Arrays.stream(nums)
+//                .boxed()
+//                .toArray(Integer[]::new);
+//
+//        Arrays.sort(numsInteger, new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer p1, Integer p2) {
+//                if (p1 == 0 || p2 == 0) {
+//                    return Integer.compare(Math.abs(p2), Math.abs(p1));
+//                }
+//                return 0;
+//            }
+//        });
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            nums[i] = numsInteger[i];
+//        }
+//    }
+
+    public static void moveZeroes(int[] nums) {
+        Integer[] numsInteger = Arrays.stream(nums)
+                .boxed()
+                .toArray(Integer[]::new);
+
+        Arrays.sort(numsInteger, Comparator.comparing(x -> x == 0));
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = numsInteger[i];
+        }
+    }
+
+
+//    static {
+//        for (int i = 0; i < 100; i++)
+//            moveZeroes(new int[]{0, 0});
+//    }
 
 //    public static void moveZeroes(int[] nums) {
 //        int length = nums.length;
@@ -77,7 +95,7 @@ Follow up: Could you minimize the total number of operations done?
 //        for (int right = 0; right < nums.length; right++) {
 //            if (nums[right] != 0) {
 
-    //// Swap elements if right pointer finds a non-zero
+    /// / Swap elements if right pointer finds a non-zero
 //                if (left != right) {
 //                    nums[left] = nums[right];
 //                    nums[right] = 0;
@@ -88,33 +106,43 @@ Follow up: Could you minimize the total number of operations done?
 //
 //
 //    }
-    static {
-        for (int i = 0; i < 100; i++)
-            moveZeroes(new int[]{0, 0});
-    }
 
-
-    public static void moveZeroes(int[] nums) {
-        int left = 0; // Pointer for placing non-zero elements
-        int right = 0; // Pointer for iterating through the array
-
-        // Iterate with right pointer
-        // The loop continues as long as the right pointer is within the array bounds
-        while (right < nums.length) {
-            if (nums[right] != 0) {
-                // If the element at 'right' is non-zero, it needs to be moved to the 'left' position.
-                // We only perform the assignments if 'left' and 'right' pointers are not at the same position.
-                // This avoids unnecessary self-assignments when the non-zero element is already in its correct sorted place.
-                if (left != right) {
-                    nums[left] = nums[right]; // Move non-zero element to the 'left' pointer's position
-                    nums[right] = 0;          // Set the 'right' pointer's original position to zero
-                }
-                left++; // Increment 'left' pointer to indicate the next position for a non-zero element
-            }
-            right++; // Always increment 'right' pointer to move to the next element
-        }
-
-    }
+//    public static void moveZeroes(int[] nums) {
+//        int left = 0; // Pointer for placing non-zero elements
+//        int right = 0; // Pointer for iterating through the array
+//
+//        // Iterate with right pointer
+//        // The loop continues as long as the right pointer is within the array bounds
+//        while (right < nums.length) {
+//            if (nums[right] != 0) {
+//                // If the element at 'right' is non-zero, it needs to be moved to the 'left' position.
+//                // We only perform the assignments if 'left' and 'right' pointers are not at the same position.
+//                // This avoids unnecessary self-assignments when the non-zero element is already in its correct sorted place.
+//                if (left != right) {
+//                    nums[left] = nums[right]; // Move non-zero element to the 'left' pointer's position
+//                    nums[right] = 0;          // Set the 'right' pointer's original position to zero
+//                }
+//                left++; // Increment 'left' pointer to indicate the next position for a non-zero element
+//            }
+//            right++; // Always increment 'right' pointer to move to the next element
+//        }
+//    }
+//    public static void moveZeroes(int[] nums) {
+//        int n = nums.length;
+//        int i = 0, j = 0;
+//        while (i < n) {
+//            if (nums[i] != 0) {
+//                nums[j] = nums[i];
+//                j++;
+//            }
+//            i++;
+//        }
+//
+//        while (j < n) {
+//            nums[j] = 0;
+//            j++;
+//        }
+//    }
 
 }
 /**
