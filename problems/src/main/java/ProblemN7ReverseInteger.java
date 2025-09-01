@@ -27,29 +27,48 @@ Constraints:
 
     public static void main(String[] args) {
         System.out.println("Hello LeetCode #7. Reverse Integer");
-        System.out.println("Solution for example 1: " + reverse(123));
-        System.out.println("Solution for example 1 is " +
-                ((reverse(123) == 321) ? "***CORRECT***" : "!!! WRONG !!!"));
+//        System.out.println("Solution for example 1: " + reverse(123));
+//        System.out.println("Solution for example 1 is " +
+//                ((reverse(123) == 321) ? "***CORRECT***" : "!!! WRONG !!!"));
+//
+//        System.out.println("Solution for example 2: " + reverse(-123));
+//        System.out.println("Solution for example 2 is " +
+//                ((reverse(-123) == -321) ? "***CORRECT***" : "!!! WRONG !!!"));
+//
+//        System.out.println("Solution for example 3: " + reverse(123));
+//        System.out.println("Solution for example 3 is " +
+//                ((reverse(120) == 21) ? "***CORRECT***" : "!!! WRONG !!!"));
+//
+//        System.out.println("Solution for test 4: " + reverse(1534236469));
+        System.out.println("Solution for test 4 is " +
+                ((reverse(1534236469) == 0) ? "***CORRECT***" : "!!! WRONG !!!"));
 
-        System.out.println("Solution for example 2: " + reverse(-123));
-        System.out.println("Solution for example 2 is " +
-                ((reverse(-123) == -321) ? "***CORRECT***" : "!!! WRONG !!!"));
 
-        System.out.println("Solution for example 3: " + reverse(123));
-        System.out.println("Solution for example 3 is " +
-                ((reverse(120) == 21) ? "***CORRECT***" : "!!! WRONG !!!"));
 
 
     }
 
+//    public static int reverse(int x) {
+//        int rev = 0;
+//        while (x != 0) {
+//            int rem = x % 10;
+//            if ((x > 0 && rev > (Integer.MAX_VALUE - rem) / 10) || (x < 0 && rev < (Integer.MIN_VALUE - rem) / 10)) {
+//                return 0;
+//            }
+//            rev = rev * 10 + rem;
+//            x /= 10;
+//        }
+//        return rev;
+//    }
+
     public static int reverse(int x) {
         int rev = 0;
         while (x != 0) {
-            int rem = x % 10;
-            if ((x > 0 && rev > (Integer.MAX_VALUE - rem) / 10) || (x < 0 && rev < (Integer.MIN_VALUE - rem) / 10)) {
+            int check = rev * 10 + x % 10;
+            if (check / 10 != rev) {
                 return 0;
             }
-            rev = rev * 10 + rem;
+            rev = check;
             x /= 10;
         }
         return rev;
