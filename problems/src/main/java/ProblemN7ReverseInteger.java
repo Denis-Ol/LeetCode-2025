@@ -44,8 +44,6 @@ Constraints:
                 ((reverse(1534236469) == 0) ? "***CORRECT***" : "!!! WRONG !!!"));
 
 
-
-
     }
 
 //    public static int reverse(int x) {
@@ -61,11 +59,26 @@ Constraints:
 //        return rev;
 //    }
 
+//    public static int reverse(int x) {
+//        int rev = 0;
+//        while (x != 0) {
+//            int check = rev * 10 + x % 10;
+//            if (check / 10 != rev) {
+//                return 0;
+//            }
+//            rev = check;
+//            x /= 10;
+//        }
+//        return rev;
+//    }
+
     public static int reverse(int x) {
         int rev = 0;
+        int power = 0;
         while (x != 0) {
             int check = rev * 10 + x % 10;
-            if (check / 10 != rev) {
+            power++;
+            if (power > 9 && (check / 10 != rev)) {
                 return 0;
             }
             rev = check;
