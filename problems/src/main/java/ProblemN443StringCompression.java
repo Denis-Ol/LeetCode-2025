@@ -82,33 +82,53 @@ chars[i] is a lowercase English letter, uppercase English letter, digit, or symb
 //        }
 //        return length;
 //    }
+//    public static int compress(char[] chars) {
+//        char previous = chars[0];
+//        int counter = 1;
+//        char current;
+//        StringBuffer stringBuffer = new StringBuffer();
+//
+//        for (int i = 1; i < chars.length; i++) {
+//            current = chars[i];
+//            if (current == previous) {
+//                counter++;
+//            } else {
+//                stringBuffer.append(previous);
+//                if (counter > 1) stringBuffer.append(counter);
+//                counter = 1;
+//                previous = current;
+//            }
+//        }
+//        stringBuffer.append(previous);
+//        if (counter > 1) {
+//            stringBuffer.append(counter);
+//        }
+//
+//        int length = stringBuffer.length();
+//        for (int i = 0; i < length; i++) {
+//            chars[i] = stringBuffer.charAt(i);
+//        }
+//        return length;
+//    }
     public static int compress(char[] chars) {
-        char previous = chars[0];
-        int counter = 1;
-        char current;
-        StringBuffer stringBuffer = new StringBuffer();
-
-        for (int i = 1; i < chars.length; i++) {
-            current = chars[i];
-            if (current == previous) {
-                counter++;
-            } else {
-                stringBuffer.append(previous);
-                if (counter > 1) stringBuffer.append(counter);
-                counter = 1;
-                previous = current;
+        int read = 0, write = 0;
+        int length = chars.length;
+        while (read < length) {
+            char currentChar = chars[read];
+            int count = 0;
+            while (read < length && chars[read] == currentChar) {
+                read++;
+                count++;
+            }
+            chars[write++] = currentChar;
+            if (count > 1) {
+                String countStr = String.valueOf(count);
+                for (char c : countStr.toCharArray()) {
+                    chars[write++] = c;
+                }
             }
         }
-        stringBuffer.append(previous);
-        if (counter > 1) {
-            stringBuffer.append(counter);
-        }
-
-        int length = stringBuffer.length();
-        for (int i = 0; i < length; i++) {
-            chars[i] = stringBuffer.charAt(i);
-        }
-        return length;
+        return write;
     }
 
 }
