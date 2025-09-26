@@ -1,3 +1,4 @@
+import leetcode.problems.ProblemN1431;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +10,7 @@ class ProblemN1431Test {
     @Test
     void kidsWithCandiesTest() {
 //        Assertions.assertEquals(new ArrayList<>(Arrays.asList(new Boolean[]{true, false})),
-//                ProblemN1431.kidsWithCandies(new int[]{}, 3), "Example 0-test failed");
+//                com.denis.leetcode.problems.ProblemN1431.kidsWithCandies(new int[]{}, 3), "Example 0-test failed");
 
         Assertions.assertEquals(new ArrayList<>(Arrays.asList(new Boolean[]{true, true, true, false, true})),
                 ProblemN1431.kidsWithCandies(new int[]{2, 3, 5, 1, 3}, 3), "Example 1 failed");

@@ -1,3 +1,4 @@
+import leetcode.problems.ProblemN53;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -6,7 +7,7 @@ class ProblemN53Test {
     @Test
     void maxSubArrayTest() {
 //        Assertions.assertEquals(53,
-//                ProblemN53.maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}),
+//                com.denis.leetcode.problems.ProblemN53.maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}),
 //                "Example 0-test failed");
         Assertions.assertEquals(6,
                 ProblemN53.maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}),

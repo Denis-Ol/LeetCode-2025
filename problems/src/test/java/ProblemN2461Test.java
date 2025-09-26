@@ -1,3 +1,4 @@
+import leetcode.problems.ProblemN2461;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +31,7 @@ class ProblemN2461Test {
     @Test
     void maximumSubarraySumTest() {
 //        Assertions.assertEquals(Integer.MIN_VALUE,
-//                ProblemN2461.maximumSubarraySum(new int[]{1, 5, 4, 2, 9, 9, 9}, 3), "Example 0-test failed");
+//                com.denis.leetcode.problems.ProblemN2461.maximumSubarraySum(new int[]{1, 5, 4, 2, 9, 9, 9}, 3), "Example 0-test failed");
         Assertions.assertEquals(15,
                 ProblemN2461.maximumSubarraySum(new int[]{1, 5, 4, 2, 9, 9, 9}, 3), "Example 1 failed");
         Assertions.assertEquals(0,
