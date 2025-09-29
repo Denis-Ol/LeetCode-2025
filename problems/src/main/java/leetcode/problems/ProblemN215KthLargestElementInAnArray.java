@@ -92,24 +92,24 @@ Constraints:
 //    }
 
 
-    //    /**
-//     * Lomuto's approach - too slow for test 43
-//     */
-//    public static int partition(int[] nums, int start, int end, int pivotIndex) {
-//        int pivot = nums[pivotIndex];
-//        swap(nums, pivotIndex, end);
-//
-//        int i = start;
-//        for (int j = start; j < end; j++) {
-//            if (nums[j] < pivot) {
-//                swap(nums, i, j);
-//                i++;
-//            }
-//        }
-//        swap(nums, i, end);
-//        return i;
-//    }
-//
+    /**
+     * Lomuto's approach - too slow for test 43
+     */
+    public static int partition(int[] nums, int start, int end, int pivotIndex) {
+        int pivot = nums[pivotIndex];
+        swap(nums, pivotIndex, end);
+
+        int i = start;
+        for (int j = start; j < end; j++) {
+            if (nums[j] < pivot) {
+                swap(nums, i, j);
+                i++;
+            }
+        }
+        swap(nums, i, end);
+        return i;
+    }
+
 //    public static int findKthLargest(int[] nums, int k) {
 //        int start = 0;
 //        int end = nums.length - 1;
@@ -129,45 +129,92 @@ Constraints:
 //            }
 //        }
 //    }
+
+    private static final Random random = new Random();
+
     public static void swap(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
     }
 
-    /**
-     * Hoare's quickselect
-     */
-    public static int partition(int[] nums, int start, int end, int pivotIndex) {
-        int pivot = nums[pivotIndex];
-        int left = start - 1;
-        int right = end + 1;
-        while (true) {
-            do left++; while (nums[left] < pivot);
-            do right--; while (nums[right] > pivot);
-            if (left >= right) {
-                return right;
-            }
-            swap(nums, left, right);
-        }
-    }
-
-    private static final Random random = new Random();
+//    /**
+//     * Hoare's quickselect
+//     */
+//    public static int partition(int[] nums, int start, int end, int pivotIndex) {
+//        int pivot = nums[pivotIndex];
+//        int left = start - 1;
+//        int right = end + 1;
+//        while (true) {
+//            do left++; while (nums[left] < pivot);
+//            do right--; while (nums[right] > pivot);
+//            if (left >= right) {
+//                return right;
+//            }
+//            swap(nums, left, right);
+//        }
+//    }
+//
+//    public static int findKthLargest(int[] nums, int k) {
+//        int start = 0;
+//        int end = nums.length - 1;
+//        int targetIndex = nums.length - k;
+//        while (start < end) {
+//            int pivotIndex = random.nextInt(end - start + 1) + start;
+//            pivotIndex = partition(nums, start, end, pivotIndex);
+//            if (targetIndex <= pivotIndex) {
+//                end = pivotIndex;
+//            } else {
+//                start = pivotIndex + 1;
+//            }
+//        }
+//        return nums[start];
+//    }
 
     public static int findKthLargest(int[] nums, int k) {
-        int start = 0;
-        int end = nums.length - 1;
+        int left = 0, right = nums.length - 1;
         int targetIndex = nums.length - k;
-        while (start < end) {
-            int pivotIndex = random.nextInt(end - start + 1) + start;
-            pivotIndex = partition(nums, start, end, pivotIndex);
-            if (targetIndex <= pivotIndex) {
-                end = pivotIndex;
+
+        while (left <= right) {
+            int pivotIndex = left + random.nextInt(right - left + 1);
+            int[] partitionIndices = threeWayPartition(nums, left, right, pivotIndex);
+
+            int pivotStart = partitionIndices[0];
+            int pivotEnd = partitionIndices[1];
+
+            if (pivotStart <= targetIndex && targetIndex <= pivotEnd) {
+                return nums[targetIndex];
+            } else if (targetIndex < pivotStart) {
+                right = pivotStart - 1;
             } else {
-                start = pivotIndex + 1;
+                left = pivotEnd + 1;
             }
         }
-        return nums[start];
+        return -1; // Should not be reached
+    }
+
+    private static int[] threeWayPartition(int[] nums, int left, int right, int pivotIndex) {
+        int pivot = nums[pivotIndex];
+        swap(nums, pivotIndex, right);
+
+        int i = left; // pointer for elements < pivot
+        int j = left; // pointer for elements = pivot
+        int k = right; // pointer for elements > pivot
+
+        while (j < k) {
+            if (nums[j] < pivot) {
+                swap(nums, i, j);
+                i++;
+                j++;
+            } else if (nums[j] > pivot) {
+                k--;
+                swap(nums, j, k);
+            } else {
+                j++;
+            }
+        }
+        swap(nums, j, right);
+        return new int[]{i, j};
     }
 
 }
