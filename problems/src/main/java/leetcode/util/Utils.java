@@ -38,4 +38,16 @@ public class Utils {
                     .toArray();
         }
     }
+
+    public static String readFileToString(String filePath) throws IOException {
+        InputStream inputStream = Utils.class.getResourceAsStream(filePath);
+        if (inputStream == null) {
+            throw new IOException("Resource not found: " + filePath);
+        }
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            return reader.lines().collect(Collectors.joining(System.lineSeparator()));
+        }
+    }
+
 }
