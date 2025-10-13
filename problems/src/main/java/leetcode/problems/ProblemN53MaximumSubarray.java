@@ -2,7 +2,7 @@ package leetcode.problems;
 
 import java.util.Arrays;
 
-public class ProblemN53 {
+public class ProblemN53MaximumSubarray {
     /*
     53. Maximum Subarray
     Medium, Topics: Array, Divide and Conquer, Dynamic Programming

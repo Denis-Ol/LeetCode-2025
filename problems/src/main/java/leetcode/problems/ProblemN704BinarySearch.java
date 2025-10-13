@@ -1,6 +1,6 @@
 package leetcode.problems;
 
-public class ProblemN704 {
+public class ProblemN704BinarySearch {
     /*
     704. Binary Search
 Easy, Topics: Array, Binary Search
@@ -32,7 +32,7 @@ Constraints:
 
 */
     public static void main(String[] args) {
-        ProblemN704 problemN704 = new ProblemN704();
+        ProblemN704BinarySearch problemN704 = new ProblemN704BinarySearch();
         System.out.println("Hello LeetCode #704. Binary Search");
         System.out.println("Solution for example 1: " + problemN704.search(new int[]{-1, 0, 3, 5, 9, 12}, 9) + ", expected - \"4\"");
         System.out.println("Solution for example 2: " + problemN704.search(new int[]{-1, 0, 3, 5, 9, 12}, 2) + ", expected - \"-1\"");

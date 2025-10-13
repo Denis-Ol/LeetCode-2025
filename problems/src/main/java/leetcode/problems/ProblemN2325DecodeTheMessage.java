@@ -3,7 +3,7 @@ package leetcode.problems;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProblemN2325 {
+public class ProblemN2325DecodeTheMessage {
     /* 2325. Decode the Message
 
 You are given the strings key and message, which represent a cipher key and a secret message, respectively. The steps to decode message are as follows:

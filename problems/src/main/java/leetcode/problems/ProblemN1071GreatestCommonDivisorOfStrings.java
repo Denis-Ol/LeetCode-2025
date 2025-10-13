@@ -1,6 +1,6 @@
 package leetcode.problems;
 
-public class ProblemN1071 {
+public class ProblemN1071GreatestCommonDivisorOfStrings {
     /* 1071. Greatest Common Divisor of Strings
 For two strings s and t, we say "t divides s" if and only if s = t + t + t + ... + t + t
 (i.e., t is concatenated with itself one or more times).

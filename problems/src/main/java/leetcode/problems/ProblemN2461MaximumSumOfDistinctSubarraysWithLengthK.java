@@ -3,7 +3,7 @@ package leetcode.problems;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProblemN2461 {
+public class ProblemN2461MaximumSumOfDistinctSubarraysWithLengthK {
     /*
     2461. Maximum Sum of Distinct Subarrays With Length K (Medium)
 

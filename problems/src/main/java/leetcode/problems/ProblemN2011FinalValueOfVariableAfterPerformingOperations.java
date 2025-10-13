@@ -1,6 +1,6 @@
 package leetcode.problems;
 
-public class ProblemN2011 {
+public class ProblemN2011FinalValueOfVariableAfterPerformingOperations {
     /*
     2011. Final Value of Variable After Performing Operations
     There is a programming language with only four operations and one variable X:

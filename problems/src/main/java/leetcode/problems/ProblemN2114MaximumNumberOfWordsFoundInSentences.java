@@ -1,6 +1,6 @@
 package leetcode.problems;
 
-public class ProblemN2114 {
+public class ProblemN2114MaximumNumberOfWordsFoundInSentences {
     /* 2114. Maximum Number of Words Found in Sentences
 A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
 You are given an array of strings sentences, where each sentences[i] represents a single sentence.

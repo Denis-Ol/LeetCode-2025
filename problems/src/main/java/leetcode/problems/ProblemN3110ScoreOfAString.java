@@ -1,6 +1,6 @@
 package leetcode.problems;
 
-public class ProblemN3110 {
+public class ProblemN3110ScoreOfAString {
     /*
     3110. Score of a String
     https://leetcode.com/problems/score-of-a-string/description/

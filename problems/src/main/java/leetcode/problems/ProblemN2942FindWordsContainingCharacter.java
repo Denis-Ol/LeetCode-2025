@@ -3,7 +3,7 @@ package leetcode.problems;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProblemN2942 {
+public class ProblemN2942FindWordsContainingCharacter {
     /* 2942. Find Words Containing Character
 You are given a 0-indexed array of strings words and a character x.
 Return an array of indices representing the words that contain the character x.

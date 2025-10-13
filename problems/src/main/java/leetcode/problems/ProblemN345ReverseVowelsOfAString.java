@@ -1,6 +1,6 @@
 package leetcode.problems;
 
-public class ProblemN345 {
+public class ProblemN345ReverseVowelsOfAString {
     /* 345. Reverse Vowels of a String
 
 Given a string s, reverse only all the vowels in the string and return it.

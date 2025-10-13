@@ -3,7 +3,7 @@ package leetcode.problems;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class ProblemN1 {
+public class ProblemN1TwoSum {
     /*
     1. Two Sum
 Easy, Topics: Array, Hash TableC

@@ -1,6 +1,6 @@
 package leetcode.problems;
 
-public class ProblemN3280 {
+public class ProblemN3280ConvertDateToBinary {
     /* 3280. Convert Date to Binary
 
     You are given a string date representing a Gregorian calendar date in the yyyy-mm-dd format.

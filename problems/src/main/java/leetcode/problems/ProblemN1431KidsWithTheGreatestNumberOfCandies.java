@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProblemN1431 {
+public class ProblemN1431KidsWithTheGreatestNumberOfCandies {
     /* 1431. Kids With the Greatest Number of Candies
 
 There are n kids with candies.

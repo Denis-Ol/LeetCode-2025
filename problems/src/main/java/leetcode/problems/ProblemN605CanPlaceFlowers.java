@@ -1,6 +1,6 @@
 package leetcode.problems;
 
-public class ProblemN605 {
+public class ProblemN605CanPlaceFlowers {
     /*
     605. Can Place Flowers
 Easy, Topics: Array, Greedy
