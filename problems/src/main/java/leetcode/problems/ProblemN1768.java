@@ -38,7 +38,7 @@ Constraints:
      */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #1768. Merge Strings Alternately");
         System.out.println("Solution for example 1: " + mergeAlternately("abc", "pqr"));
         System.out.println("Solution for example 2: " + mergeAlternately("ab", "pqrs"));
         System.out.println("Solution for example 3: " + mergeAlternately("abcd", "pq"));

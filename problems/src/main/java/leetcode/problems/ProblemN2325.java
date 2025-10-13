@@ -42,7 +42,7 @@ Constraints:
      */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #2325. Decode the Message");
         System.out.println("Solution for example 1: " + decodeMessage("the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv"));
         System.out.println("Solution for example 2: " + decodeMessage("eljuxhpwnyrdgtqkviszcfmabo", "zwx hnfx lqantp mnoeius ycgk vcnjrdb"));
     }

@@ -32,7 +32,7 @@ Constraints:
      */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #2114. Maximum Number of Words Found in Sentences");
         System.out.println("Solution for example 1: " + mostWordsFound(new String[]{"alice and bob love leetcode", "i think so too", "this is great thanks very much"}));
         System.out.println("Solution for example 2: " + mostWordsFound(new String[]{"please wait", "continue to fight", "continue to win"}));
     }

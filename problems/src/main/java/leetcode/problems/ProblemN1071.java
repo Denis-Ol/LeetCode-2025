@@ -26,7 +26,7 @@ Constraints:
      */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #1071. Greatest Common Divisor of Strings");
         System.out.println("Solution for example 1: " + gcdOfStrings("AAAA", "AA"));
         System.out.println("Solution for example 1: " + gcdOfStrings("ABCABC", "ABC"));
 //        System.out.println("Solution for example 2: " + mergeAlternately("ab", "pqrs"));

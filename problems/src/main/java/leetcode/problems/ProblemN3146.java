@@ -32,7 +32,7 @@ Constraints:
 */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #3146. Permutation Difference between Two Strings");
         System.out.println("Solution for example 1: " + findPermutationDifference("abc", "bac"));
         System.out.println("Solution for example 2: " + findPermutationDifference("abcde", "edbac"));
     }

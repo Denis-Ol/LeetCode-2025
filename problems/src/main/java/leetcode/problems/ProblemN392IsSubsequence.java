@@ -33,7 +33,7 @@ In this scenario, how would you change your code?  */
 
     public static void main(String[] args) {
 
-        System.out.println("Hello LeetCode #605");
+        System.out.println("Hello LeetCode #392 Is Subsequence");
         String s = "abc", t = "ahbgdc";
 
         System.out.println("Solution for example 1: " + isSubsequence(s, t));

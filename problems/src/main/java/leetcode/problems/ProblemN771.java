@@ -23,7 +23,7 @@ Constraints:
     All the characters of jewels are unique. */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #771. Jewels and Stones");
         System.out.println("Solution: " + numJewelsInStones("ebd", "bbb"));
 
     }

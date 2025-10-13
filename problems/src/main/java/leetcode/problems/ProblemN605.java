@@ -26,7 +26,7 @@ Constraints:
 
 */
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode #605");
+        System.out.println("Hello LeetCode #605 Can Place Flowers");
         System.out.println("Solution for example 1: " + canPlaceFlowers(new int[]{1, 0, 0, 0, 1}, 1));
         System.out.println("Solution for example 2: " + canPlaceFlowers(new int[]{1, 0, 0, 0, 1}, 2));
         System.out.println("Solution for test 1: " + canPlaceFlowers(new int[]{1, 0, 0, 0, 1}, 0));

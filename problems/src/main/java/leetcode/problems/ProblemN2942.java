@@ -33,7 +33,7 @@ Constraints:
      */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #2942. Find Words Containing Character");
         System.out.println("Solution for example 1: " + findWordsContaining(new String[]{"leet", "code"}, 'e'));
         System.out.println("Solution for example 2: " + findWordsContaining(new String[]{"abc", "bcd", "aaaa", "cbc"}, 'a'));
         System.out.println("Solution for example 3: " + findWordsContaining(new String[]{"abc", "bcd", "aaaa", "cbc"}, 'z'));

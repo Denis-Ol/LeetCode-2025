@@ -38,7 +38,7 @@ Constraints:
 1 <= s.length <= 104
 s consists of parentheses only '()[]{}'. */
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode #605");
+        System.out.println("Hello LeetCode #20. Valid Parentheses");
         System.out.println("Solution for example 1: " + isValid("()"));
         System.out.println("Solution for example 1 is " +
                 (isValid("()") ? "***CORRECT***" : "!!! WRONG !!!"));

@@ -30,7 +30,7 @@ Constraints:
             */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #3280. Convert Date to Binary");
         System.out.println("Solution: " + convertDateToBinary("2080-02-29"));
 
     }

@@ -26,7 +26,7 @@ public class ProblemN3110 {
         */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #3110. Score of a String");
         String s = "hello";
         int length = s.toCharArray().length;
         System.out.println("length = " + length);

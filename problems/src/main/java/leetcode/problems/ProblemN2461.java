@@ -41,7 +41,7 @@ Constraints:
      */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode");
+        System.out.println("Hello LeetCode #2461. Maximum Sum of Distinct Subarrays With Length K");
         System.out.println("Solution for example 1: " + maximumSubarraySumNoDistinct(new int[]{2, 3, 5, 1, 3}, 3));
 //        System.out.println("Solution for example 2: " + maximumSubarraySum("eljuxhpwnyrdgtqkviszcfmabo", "zwx hnfx lqantp mnoeius ycgk vcnjrdb"));
     }

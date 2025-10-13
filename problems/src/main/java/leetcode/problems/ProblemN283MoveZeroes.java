@@ -3,7 +3,7 @@ package leetcode.problems;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class ProblemN283 {
+public class ProblemN283MoveZeroes {
     /*
     283. Move Zeroes
 Easy, Topics: Array, Two Pointers
@@ -27,7 +27,7 @@ Constraints:
 Follow up: Could you minimize the total number of operations done?
 */
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode #283");
+        System.out.println("Hello LeetCode #283 Move Zeroes");
     }
 
 //    public static void moveZeroes(int[] nums) {

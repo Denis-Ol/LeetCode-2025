@@ -37,7 +37,7 @@ Follow up: Could you implement a solution that runs in
 O(n) time complexity and O(1) space complexity? */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode #605");
+        System.out.println("Hello LeetCode #334 Increasing Triplet Subsequence");
         System.out.println("Solution for example 1: " + increasingTriplet(new int[]{1, 2, 3, 4, 5}));
         System.out.println("Solution for example 1 is " +
                 (increasingTriplet(new int[]{1, 2, 3, 4, 5}) ? "***CORRECT***" : "!!! WRONG !!!"));

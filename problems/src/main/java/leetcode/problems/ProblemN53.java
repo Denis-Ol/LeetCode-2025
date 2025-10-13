@@ -33,7 +33,7 @@ Follow up: If you have figured out the O(n) solution,
 try coding another solution using the divide and conquer approach, which is more subtle.
 */
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode #53");
+        System.out.println("Hello LeetCode #53. Maximum Subarray");
         System.out.println("Solution for example 1: " + maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
         System.out.println("Solution for example 2: " + maxSubArray(new int[]{1}));
         System.out.println("Solution for example 3: " + maxSubArray(new int[]{5, 4, -1, 7, 8}));
