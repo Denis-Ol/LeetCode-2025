@@ -25,7 +25,7 @@ Constraints:
 Follow up: Could you find an O(n + m) solution? */
 
     public static void main(String[] args) {
-        System.out.println("Hello LeetCode #2483. Minimum Penalty for a Shop");
+        System.out.println("Hello LeetCode #1351. Count Negative Numbers in a Sorted Matrix");
         int[][] grid1 = {
                 {4, 3, 2, -1},
                 {3, 2, 1, -1},
