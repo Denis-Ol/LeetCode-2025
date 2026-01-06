@@ -1,8 +1,5 @@
 package leetcode.problems;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ProblemN1161MaximumLevelSumOfBinaryTree {
     /* 1161. Maximum Level Sum of a Binary Tree
 Medium, Topics: Tree, Depth-First Search, Breadth-First Search, Binary Tree
@@ -72,7 +69,7 @@ Constraints:
         }
     }
 
-    // HashMap for levels, DFS
+    /* // HashMap for levels, DFS => 9 ms
     public static int maxLevelSum(TreeNode root) {
         Map<Integer, Integer> levelsMap = new HashMap<>();
         valOfNodeAtLevel(root, 1, levelsMap);
@@ -102,6 +99,61 @@ Constraints:
         map.put(level, map.getOrDefault(level, 0) + val);
         valOfNodeAtLevel(root.left, level + 1, map);
         valOfNodeAtLevel(root.right, level + 1, map);
+    }*/
+
+    /* // int[] for levels, DFS => 2 ms
+    public static int maxLevelSum(TreeNode root) {
+        int[] levels = new int[10001];
+        int[] maxLevelReached = new int[1];
+        valOfNodeAtLevel(root, 1, levels, maxLevelReached);
+        int maxVal = Integer.MIN_VALUE;
+        int maxLevel = 0;
+        for (int i = 1; i <= maxLevelReached[0]; i++) {
+            int currVal = levels[i];
+            if (maxVal < currVal) {
+                maxLevel = i;
+                maxVal = currVal;
+            }
+        }
+        return maxLevel;
     }
 
+    private static void valOfNodeAtLevel(TreeNode root, int level, int[] levelsArr, int[] maxSeenLevel) {
+        if (root == null) {
+            return;
+        }
+        int val = root.val;
+        levelsArr[level] += val;
+        if (maxSeenLevel[0] < level) {
+            maxSeenLevel[0] = level;
+        }
+        valOfNodeAtLevel(root.left, level + 1, levelsArr, maxSeenLevel);
+        valOfNodeAtLevel(root.right, level + 1, levelsArr, maxSeenLevel);
+    }*/
+
+    // int[] for levels, DFS, int method with maxSeenLevel => 2 ms
+    public static int maxLevelSum(TreeNode root) {
+        int[] levels = new int[10001];
+        int maxLevelReached = valOfNodeAtLevel(root, 1, levels);
+        int maxVal = Integer.MIN_VALUE;
+        int maxLevel = 0;
+        for (int i = 1; i <= maxLevelReached; i++) {
+            int currVal = levels[i];
+            if (maxVal < currVal) {
+                maxLevel = i;
+                maxVal = currVal;
+            }
+        }
+        return maxLevel;
+    }
+
+    private static int valOfNodeAtLevel(TreeNode root, int level, int[] levelsArr) {
+        if (root == null) {
+            return 0;
+        }
+        levelsArr[level] += root.val;
+        int leftMax = valOfNodeAtLevel(root.left, level + 1, levelsArr);
+        int rightMax = valOfNodeAtLevel(root.right, level + 1, levelsArr);
+        return Math.max(level, Math.max(leftMax, rightMax));
+    }
 }
