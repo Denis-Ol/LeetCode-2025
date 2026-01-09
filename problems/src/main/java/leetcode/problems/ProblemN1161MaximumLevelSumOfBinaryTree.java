@@ -134,7 +134,7 @@ Constraints:
     // int[] for levels, DFS, int method with maxSeenLevel => 2 ms
     public static int maxLevelSum(TreeNode root) {
         int[] levels = new int[10001];
-        int maxLevelReached = valOfNodeAtLevel(root, 1, levels);
+        int maxLevelReached = maxLevel(root, 1, levels);
         int maxVal = Integer.MIN_VALUE;
         int maxLevel = 0;
         for (int i = 1; i <= maxLevelReached; i++) {
@@ -147,13 +147,13 @@ Constraints:
         return maxLevel;
     }
 
-    private static int valOfNodeAtLevel(TreeNode root, int level, int[] levelsArr) {
+    private static int maxLevel(TreeNode root, int level, int[] sumArr) {
         if (root == null) {
             return 0;
         }
-        levelsArr[level] += root.val;
-        int leftMax = valOfNodeAtLevel(root.left, level + 1, levelsArr);
-        int rightMax = valOfNodeAtLevel(root.right, level + 1, levelsArr);
+        sumArr[level] += root.val;
+        int leftMax = maxLevel(root.left, level + 1, sumArr);
+        int rightMax = maxLevel(root.right, level + 1, sumArr);
         return Math.max(level, Math.max(leftMax, rightMax));
     }
 }
