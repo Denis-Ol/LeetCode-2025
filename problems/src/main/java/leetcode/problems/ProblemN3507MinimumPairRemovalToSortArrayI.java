@@ -55,8 +55,8 @@ Constraints:
                 ((solution == 17) ? "***CORRECT***" : "!!! WRONG !!!"));
     }
 
-    // 8 ms - 9%
-    public static int minimumPairRemoval(int[] nums) {
+    // 8 ms - 9%, new array each time action is done
+    /*public static int minimumPairRemoval(int[] nums) {
         int count = 0;
         while (!isArrayNonDecreasing(nums)) {
             int[] newArr = swapArray(nums);
@@ -108,5 +108,52 @@ Constraints:
             newArr[i] = nums[i + 1];
         }
         return newArr;
+    }*/
+// inplace array action, but n = length as parameter -> 1 ms, 100%
+    public static int minimumPairRemoval(int[] nums) {
+        int count = 0;
+        int length = nums.length;
+        while (!isArrayNonDecreasing(nums, length)) {
+            swapArray(nums, length);
+            length--;
+            count++;
+        }
+        return count;
+    }
+
+    private static boolean isArrayNonDecreasing(int[] nums, int n) {
+        if (n == 1) {
+            return true;
+        }
+        for (int i = 0; i < n - 1; i++) {
+            if (nums[i] > nums[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static int minSumPairIndex(int[] nums, int n) {
+        if (n == 2) {
+            return 0;
+        }
+        int sum = Integer.MAX_VALUE;
+        int index = -1;
+        for (int i = 0; i < n - 1; i++) {
+            int currSum = nums[i] + nums[i + 1];
+            if (currSum < sum) {
+                index = i;
+                sum = currSum;
+            }
+        }
+        return index;
+    }
+
+    private static void swapArray(int[] nums, int n) {
+        int index = minSumPairIndex(nums, n);
+        nums[index] += nums[index + 1];
+        for (int i = index + 1; i < n - 1; i++) {
+            nums[i] = nums[i + 1];
+        }
     }
 }
