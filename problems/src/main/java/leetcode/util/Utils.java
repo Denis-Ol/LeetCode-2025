@@ -1,6 +1,9 @@
 package leetcode.util;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,7 +24,7 @@ public class Utils {
                 .toArray();
     }
 
-    public static int[] readCommaSeparatedInts(String filePath) throws IOException {
+    public static int[] readCommaSeparatedIntsOld(String filePath) throws IOException {
         // Use the classpath to find the resource file
         InputStream inputStream = Utils.class.getResourceAsStream(filePath);
         if (inputStream == null) {
@@ -36,6 +39,27 @@ public class Utils {
             return Stream.of(stringNumbers)
                     .mapToInt(Integer::parseInt)
                     .toArray();
+        }
+    }
+
+    //more memory savvy
+    public static int[] readCommaSeparatedInts(String filePath) throws IOException {
+        InputStream inputStream = Utils.class.getResourceAsStream(filePath);
+        if (inputStream == null) {
+            throw new IOException("Resource not found: " + filePath);
+        }
+
+        // Using Scanner with a delimiter processes the file as a stream
+        // instead of loading everything into memory first.
+        try (Scanner scanner = new Scanner(inputStream)) {
+            scanner.useDelimiter("\\s*,\\s*");
+
+            List<Integer> list = new ArrayList<>();
+            while (scanner.hasNextInt()) {
+                list.add(scanner.nextInt());
+            }
+
+            return list.stream().mapToInt(i -> i).toArray();
         }
     }
 
